@@ -79,7 +79,6 @@ def test_add_baseline_features_preserves_rows_target_and_identifiers() -> None:
         "course",
         "class_start",
         "prediction_horizon",
-        "prediction_time",
     ]
 
     baseline_features = add_baseline_features(prediction_instances)
@@ -99,6 +98,29 @@ def test_add_baseline_features_preserves_rows_target_and_identifiers() -> None:
     assert baseline_features.duplicated(prediction_identifier_columns).sum() == 0
     assert "attendance_list" in baseline_features.columns
     assert "waiting_list" in baseline_features.columns
+
+
+def test_prediction_identifier_excludes_prediction_time() -> None:
+    prediction_instances = pd.concat(
+        [_build_prediction_instances().iloc[[0]]] * 2,
+        ignore_index=True,
+    )
+    prediction_instances.loc[1, "prediction_time"] += pd.Timedelta(hours=1)
+    prediction_identifier_columns = [
+        "studio",
+        "course",
+        "class_start",
+        "prediction_horizon",
+    ]
+
+    assert "prediction_time" not in prediction_identifier_columns
+    assert (
+        prediction_instances.duplicated(
+            prediction_identifier_columns,
+            keep=False,
+        ).sum()
+        == 2
+    )
 
 
 def _build_historical_prediction_instances() -> pd.DataFrame:
@@ -161,7 +183,15 @@ def _build_attendance_history() -> pd.DataFrame:
                 "Di 11:00",
                 "Mo 18:00",
             ],
-            "instructor": ["Marta", "Marta", "Nina", "Marta", "Marta", "Marta", "Jonas"],
+            "instructor": [
+                "Marta",
+                "Marta",
+                "Nina",
+                "Marta",
+                "Marta",
+                "Marta",
+                "Jonas",
+            ],
             "class_start": pd.to_datetime(
                 [
                     "2025-05-10 11:00:00",
