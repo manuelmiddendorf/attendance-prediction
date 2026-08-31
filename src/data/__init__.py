@@ -21,22 +21,32 @@ from .representation import (
 )
 from .synthetic import (
     DEFAULT_SYNTHETIC_SEED,
+    PUBLIC_SYNTHETIC_CONFIG,
+    SyntheticConfig,
     SyntheticDatasets,
     create_synthetic_data,
     create_synthetic_raw_datasets,
     ensure_synthetic_data_files,
 )
+from .synthetic_calibration import (
+    build_calibration_summary,
+    run_privacy_sanity_checks,
+)
 
 __all__ = [
     "DEFAULT_SYNTHETIC_SEED",
+    "PUBLIC_SYNTHETIC_CONFIG",
     "PROJECT_ROOT",
     "RAW_ATTENDANCE_FILENAME",
     "RAW_EVENT_FILENAME",
+    "SyntheticConfig",
     "SyntheticDatasets",
+    "build_calibration_summary",
     "create_synthetic_data",
     "create_synthetic_raw_datasets",
     "ensure_synthetic_data_files",
     "load_data",
     "prepare_attendance",
     "prepare_booking_events",
+    "run_privacy_sanity_checks",
 ]

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import pandas as pd
 from pandas.api.types import is_datetime64_any_dtype
 
 from src.data import load_data, prepare_attendance, prepare_booking_events
@@ -32,7 +31,10 @@ def test_prepare_booking_events_builds_canonical_representation() -> None:
     assert is_datetime64_any_dtype(booking_events["class_start"])
     assert str(booking_events["capacity"].dtype) == "Int64"
     assert str(booking_events["waiting_list_length"].dtype) == "Int64"
-    assert booking_events.at[0, "class_start"] == pd.Timestamp("2026-01-06 11:00:00")
+    assert booking_events["class_start"].notna().all()
+    assert booking_events["class_date"].equals(
+        booking_events["class_start"].dt.normalize()
+    )
 
 
 def test_prepare_attendance_builds_canonical_representation() -> None:
@@ -56,5 +58,7 @@ def test_prepare_attendance_builds_canonical_representation() -> None:
     assert is_datetime64_any_dtype(attendance["class_start"])
     assert is_datetime64_any_dtype(attendance["class_date"])
     assert str(attendance["capacity"].dtype) == "Int64"
-    assert attendance.at[0, "class_start"] == pd.Timestamp("2026-01-06 11:00:00")
-    assert attendance.at[0, "class_date"] == pd.Timestamp("2026-01-06")
+    assert attendance["class_start"].notna().all()
+    assert attendance["class_date"].equals(
+        attendance["class_start"].dt.normalize()
+    )

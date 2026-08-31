@@ -21,12 +21,12 @@ def _build_prediction_instances() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb", "Nk"],
-            "course": ["Di 11:00", "Mo 18:00"],
+            "studio": ["Studio A", "Studio B"],
+            "course": ["Course A", "Course B"],
             "class_start": pd.to_datetime(
                 ["2025-05-20 11:00:00", "2025-05-19 18:00:00"]
             ),
-            "instructor": ["Marta", "Clara"],
+            "instructor": ["Instructor A", "Instructor B"],
             "final_attendance_count": [3, 9],
             "attendance_list": [["m1", "m2"], ["m3", "m4", "m5", "m6"]],
             "event_timestamp": pd.to_datetime(
@@ -134,12 +134,12 @@ def _build_historical_prediction_instances() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb", "Nk"],
-            "course": ["Di 11:00", "Mo 18:00"],
+            "studio": ["Studio A", "Studio B"],
+            "course": ["Course A", "Course B"],
             "class_start": pd.to_datetime(
                 ["2025-05-21 11:00:00", "2025-05-21 18:00:00"]
             ),
-            "instructor": ["Marta", "Jonas"],
+            "instructor": ["Instructor A", "Instructor C"],
             "final_attendance_count": [3, 7],
             "attendance_list": [["m1", "m2"], ["m3"]],
             "event_timestamp": pd.to_datetime(
@@ -173,24 +173,32 @@ def _build_attendance_history() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb", "Cb", "Cb", "Cb", "Cb", "Cb", "Nk"],
+            "studio": [
+                "Studio A",
+                "Studio A",
+                "Studio A",
+                "Studio A",
+                "Studio A",
+                "Studio A",
+                "Studio B",
+            ],
             "course": [
-                "Di 11:00",
-                "Di 11:00",
-                "Di 11:00",
-                "Mi 16:00",
-                "Di 11:00",
-                "Di 11:00",
-                "Mo 18:00",
+                "Course A",
+                "Course A",
+                "Course A",
+                "Course C",
+                "Course A",
+                "Course A",
+                "Course B",
             ],
             "instructor": [
-                "Marta",
-                "Marta",
-                "Nina",
-                "Marta",
-                "Marta",
-                "Marta",
-                "Jonas",
+                "Instructor A",
+                "Instructor A",
+                "Instructor D",
+                "Instructor A",
+                "Instructor A",
+                "Instructor A",
+                "Instructor C",
             ],
             "class_start": pd.to_datetime(
                 [
@@ -268,12 +276,12 @@ def _build_member_history_prediction_instances() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb", "Cb"],
-            "course": ["Di 11:00", "Di 11:00"],
+            "studio": ["Studio A", "Studio A"],
+            "course": ["Course A", "Course A"],
             "class_start": pd.to_datetime(
                 ["2025-05-21 11:00:00", "2025-05-22 11:00:00"]
             ),
-            "instructor": ["Marta", "Marta"],
+            "instructor": ["Instructor A", "Instructor A"],
             "final_attendance_count": [3, 0],
             "attendance_list": [["m1", "m2"], []],
             "event_timestamp": pd.to_datetime(
@@ -307,16 +315,30 @@ def _build_member_history_attendance() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb", "Cb", "Cb", "Cb", "Cb", "Cb"],
-            "course": [
-                "Di 11:00",
-                "Mi 16:00",
-                "Di 11:00",
-                "Fr 17:00",
-                "Di 11:00",
-                "Di 11:00",
+            "studio": [
+                "Studio A",
+                "Studio A",
+                "Studio A",
+                "Studio A",
+                "Studio A",
+                "Studio A",
             ],
-            "instructor": ["Marta", "Marta", "Jonas", "Nina", "Marta", "Marta"],
+            "course": [
+                "Course A",
+                "Course C",
+                "Course A",
+                "Course D",
+                "Course A",
+                "Course A",
+            ],
+            "instructor": [
+                "Instructor A",
+                "Instructor A",
+                "Instructor C",
+                "Instructor D",
+                "Instructor A",
+                "Instructor A",
+            ],
             "class_start": pd.to_datetime(
                 [
                     "2025-05-10 11:00:00",

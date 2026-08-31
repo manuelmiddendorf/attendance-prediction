@@ -26,10 +26,10 @@ def _build_current_features(prediction_horizon: int = 24) -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb"],
-            "course": ["Di 11:00"],
+            "studio": ["Studio A"],
+            "course": ["Course A"],
             "class_start": [class_start],
-            "instructor": ["Marta"],
+            "instructor": ["Instructor A"],
             "final_attendance_count": [1],
             "attendance_list": [["m1"]],
             "prediction_horizon": [prediction_horizon],
@@ -50,8 +50,8 @@ def _build_reliability_attendance_history() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb"] * 6,
-            "course": ["Di 11:00"] * 6,
+            "studio": ["Studio A"] * 6,
+            "course": ["Course A"] * 6,
             "class_start": pd.to_datetime(
                 [
                     "2025-05-10 11:00:00",
@@ -86,8 +86,8 @@ def _build_reliability_booking_history() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb"] * 7,
-            "course": ["Di 11:00"] * 7,
+            "studio": ["Studio A"] * 7,
+            "course": ["Course A"] * 7,
             "class_start": pd.to_datetime(
                 [
                     "2025-05-10 11:00:00",
@@ -135,8 +135,8 @@ def _build_horizon_dependence_attendance_history() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb", "Cb"],
-            "course": ["Di 11:00", "Di 11:00"],
+            "studio": ["Studio A", "Studio A"],
+            "course": ["Course A", "Course A"],
             "class_start": pd.to_datetime(
                 ["2025-05-10 11:00:00", "2025-05-11 11:00:00"]
             ),
@@ -157,8 +157,8 @@ def _build_horizon_dependence_booking_history() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb", "Cb"],
-            "course": ["Di 11:00", "Di 11:00"],
+            "studio": ["Studio A", "Studio A"],
+            "course": ["Course A", "Course A"],
             "class_start": pd.to_datetime(
                 ["2025-05-10 11:00:00", "2025-05-11 11:00:00"]
             ),

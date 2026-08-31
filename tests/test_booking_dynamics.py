@@ -17,10 +17,10 @@ def _build_booking_dynamics_features() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb"],
-            "course": ["Di 11:00"],
+            "studio": ["Studio A"],
+            "course": ["Course A"],
             "class_start": pd.to_datetime(["2025-05-20 11:00:00"]),
-            "instructor": ["Marta"],
+            "instructor": ["Instructor A"],
             "final_attendance_count": [3],
             "attendance_list": [["m1", "m2"]],
             "event_timestamp": pd.to_datetime(["2025-05-20 09:30:00"]),
@@ -43,8 +43,8 @@ def _build_booking_dynamics_history() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb"] * 7,
-            "course": ["Di 11:00"] * 7,
+            "studio": ["Studio A"] * 7,
+            "course": ["Course A"] * 7,
             "class_start": pd.to_datetime(["2025-05-20 11:00:00"] * 7),
             "event_timestamp": pd.to_datetime(
                 [
@@ -83,10 +83,10 @@ def _build_same_timestamp_features() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb"],
-            "course": ["Di 11:00"],
+            "studio": ["Studio A"],
+            "course": ["Course A"],
             "class_start": pd.to_datetime(["2025-05-20 11:00:00"]),
-            "instructor": ["Marta"],
+            "instructor": ["Instructor A"],
             "final_attendance_count": [1],
             "attendance_list": [["m1"]],
             "event_timestamp": pd.to_datetime(["2025-05-20 09:00:00"]),
@@ -108,8 +108,8 @@ def _build_same_timestamp_history() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb"] * 3,
-            "course": ["Di 11:00"] * 3,
+            "studio": ["Studio A"] * 3,
+            "course": ["Course A"] * 3,
             "class_start": pd.to_datetime(["2025-05-20 11:00:00"] * 3),
             "event_timestamp": pd.to_datetime(
                 [

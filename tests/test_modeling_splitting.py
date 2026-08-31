@@ -34,8 +34,8 @@ def _build_prediction_instances() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb", "Cb", "Nk"],
-            "course": ["Sa 18:00", "So 00:00", "Fr 00:00"],
+            "studio": ["Studio A", "Studio A", "Studio B"],
+            "course": ["Course E", "Course F", "Course G"],
             "class_start": class_start,
             "prediction_horizon": prediction_horizon,
             "prediction_time": class_start - pd.to_timedelta(
@@ -95,8 +95,8 @@ def test_assign_temporal_split_rejects_timezone_mismatch() -> None:
 def test_multiple_horizons_for_one_class_remain_in_one_split() -> None:
     features = pd.DataFrame(
         {
-            "studio": ["Cb", "Cb"],
-            "course": ["Di 11:00", "Di 11:00"],
+            "studio": ["Studio A", "Studio A"],
+            "course": ["Course A", "Course A"],
             "class_start": pd.to_datetime(
                 ["2026-03-10 11:00:00", "2026-03-10 11:00:00"]
             ),
@@ -126,8 +126,8 @@ def test_prediction_identifier_columns_match_contract() -> None:
 def test_prediction_identity_ignores_prediction_time() -> None:
     features = pd.DataFrame(
         {
-            "studio": ["Cb", "Cb"],
-            "course": ["Di 11:00", "Di 11:00"],
+            "studio": ["Studio A", "Studio A"],
+            "course": ["Course A", "Course A"],
             "class_start": pd.to_datetime(
                 ["2026-03-10 11:00:00", "2026-03-10 11:00:00"]
             ),

@@ -16,9 +16,9 @@ def _build_features() -> pd.DataFrame:
 
     return pd.DataFrame(
         {
-            "studio": ["Cb", "Nk"],
-            "course": ["Di 11:00", "Mo 18:00"],
-            "instructor": ["Marta", "Jonas"],
+            "studio": ["Studio A", "Studio B"],
+            "course": ["Course A", "Course B"],
+            "instructor": ["Instructor A", "Instructor C"],
             "class_start": pd.to_datetime(
                 ["2025-05-20 11:00:00", "2025-05-21 18:00:00"]
             ),
@@ -52,14 +52,21 @@ def _build_attendance_history() -> pd.DataFrame:
     return pd.DataFrame(
         {
             "course": [
-                "Di 11:00",
-                "Di 11:00",
-                "Di 11:00",
-                "Di 11:00",
-                "Di 11:00",
-                "Mo 18:00",
+                "Course A",
+                "Course A",
+                "Course A",
+                "Course A",
+                "Course A",
+                "Course B",
             ],
-            "instructor": ["Marta", "Marta", "Clara", "Marta", "Marta", "Jonas"],
+            "instructor": [
+                "Instructor A",
+                "Instructor A",
+                "Instructor B",
+                "Instructor A",
+                "Instructor A",
+                "Instructor C",
+            ],
             "class_start": pd.to_datetime(
                 [
                     "2025-05-10 11:00:00",

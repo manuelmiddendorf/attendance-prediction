@@ -27,7 +27,7 @@ For each class, the prediction time is defined as **24 hours before class start*
 
 This produces **762 prediction instances**.
 
-The original data contain personal information and are therefore not included in the repository. A synthetic dataset is provided to reproduce the workflow and code structure. Numerical results reported here refer to the original studio data.
+The original data contain personal information and are therefore not included in the repository. The public synthetic dataset is generated from a statistical model calibrated to aggregate properties of the private studio data. It contains entirely synthetic members, classes, and booking histories while preserving key distributions and predictive relationships needed to reproduce the qualitative behavior of the analysis. It is not a pseudonymized copy of the original records. Because the synthetic data are newly generated rather than transformed original records, model metrics and other numerical results obtained from the synthetic dataset differ from those obtained on the original data. Numerical results reported here refer to the original studio data.
 
 ## Methodology
 
@@ -134,7 +134,7 @@ Run the notebooks in numerical order. Where available, set:
 USE_SYNTHETIC = True
 ```
 
-The synthetic data reproduce the structure needed by the pipeline, but not the statistical properties of the original dataset. Synthetic runs should therefore not be expected to reproduce the numerical results above.
+The synthetic data reproduce the raw schemas, broad distributions, temporal coverage, booking dynamics, and member-reliability mechanism needed by the pipeline. Synthetic runs are intended to tell a similar qualitative modeling story, but they are not expected to reproduce the exact private-data results above.
 
 ## Limitations and Future Work
 
